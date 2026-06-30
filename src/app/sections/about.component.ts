@@ -25,13 +25,13 @@ import { RevealDirective } from '../shared/reveal.directive';
         </p>
       </div>
 
-      <!-- Wide real photo band: founders out in the community -->
+      <!-- Wide real photo band: advocates at a Berkeley County school district town hall -->
       <figure [mfcReveal]="120" class="mx-auto mt-14 max-w-[1100px]">
         <img
-          src="assets/img/about-band.jpg"
-          alt="A Moms for Change co-founder with community members at a Berkeley County public education event"
-          width="1200"
-          height="675"
+          src="assets/img/advocacy-public-education.jpg"
+          alt="Moms for Change advocates at a Berkeley County School District town hall, wearing Protect Public Education and Advocate shirts"
+          width="1600"
+          height="900"
           loading="lazy"
           class="aspect-[16/9] w-full rounded-card object-cover shadow-lg ring-1 ring-hairline"
         />
