@@ -73,11 +73,14 @@ interface NavLink {
           </div>
         </div>
 
-        <div
-          class="mt-14 flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-paper/65 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <p>&copy; 2026 Moms for Change. Berkeley County, South Carolina.</p>
-          <p>Made by parents, for our public schools.</p>
+        <div class="mt-14 border-t border-white/15 pt-6">
+          <div
+            class="flex flex-col gap-2 text-sm text-paper/65 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <p>&copy; 2026 Moms for Change. Berkeley County, South Carolina.</p>
+            <p>Made by parents, for our public schools.</p>
+          </div>
+          <p class="mt-4 text-xs text-paper/45">Site built by Draugel Engineering, LLC.</p>
         </div>
       </div>
     </footer>
