@@ -21,25 +21,34 @@ npm start      # ng serve -> http://localhost:4200
 npm run build  # production build to dist/moms-for-change
 ```
 
-## Deploy (GitHub Actions to Cloudflare Pages)
+## Deploy (Cloudflare Workers Builds, Git-connected)
 
-`.github/workflows/deploy.yml` builds on every push to `main` and uploads the static
-output (`dist/moms-for-change/browser`) to Cloudflare Pages via Wrangler.
+Hosting is a static-assets Worker, built by Cloudflare directly from this repo. The
+config lives in `wrangler.jsonc`, which points at the build output
+(`dist/moms-for-change/browser`).
 
-One-time setup:
+In the Cloudflare dashboard (Workers & Pages, Create, connect this GitHub repo) the
+project settings are:
 
-1. **Create the Pages project** (Cloudflare dashboard, Workers & Pages, Create, Pages,
-   Direct Upload) named `momsforchange`. Or once via CLI:
-   ```bash
-   npx wrangler pages project create momsforchange --production-branch=main
-   ```
-   If you pick a different name, update `--project-name` in the workflow.
-2. **Add two GitHub repo secrets** (Settings, Secrets and variables, Actions):
-   - `CLOUDFLARE_API_TOKEN` - a token with the "Cloudflare Pages: Edit" permission.
-   - `CLOUDFLARE_ACCOUNT_ID` - found on the Cloudflare dashboard sidebar.
+- **Project name:** `momsforchange` (must match `name` in `wrangler.jsonc`)
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy`
+- **Non-production branch deploy command:** `npx wrangler versions upload`
+- **Path:** `/`
 
-After that, every push to `main` builds and deploys automatically. Trigger manually from
-the Actions tab (Run workflow) any time.
+Cloudflare installs dependencies, runs the build, then `npx wrangler deploy` uploads the
+assets. No GitHub secrets are needed; Cloudflare manages its own token. Every push to
+`main` redeploys.
+
+Validate the config locally any time without uploading:
+
+```bash
+npm run build
+npx wrangler deploy --dry-run
+```
+
+Custom domain (`momsforchangesc.org`) is set in the Worker, Settings, Domains & Routes.
+The root `CNAME` file is a GitHub Pages convention and is not used by this path.
 
 ## Design system
 
