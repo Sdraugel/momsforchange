@@ -44,7 +44,7 @@ import { RevealDirective } from '../shared/reveal.directive';
             <i class="ph-bold ph-envelope-simple text-3xl text-emerald-700"></i>
             <h3 class="mt-4 text-xl font-semibold text-forest">Have a question first?</h3>
             <p class="mt-2 grow leading-relaxed text-forest-soft">
-              Send a note to momsforchangesc&#64;gmail.com and we will point you in the right
+              Send a note to info&#64;momsforchangesc.org and we will point you in the right
               direction.
             </p>
             <a
@@ -64,5 +64,5 @@ export class GetInvolvedComponent {
   protected readonly facebookUrl = 'https://www.facebook.com/groups/momsforchangesc';
 
   protected readonly contactHref =
-    'mailto:momsforchangesc@gmail.com?subject=Question%20about%20Moms%20for%20Change';
+    'mailto:info@momsforchangesc.org?subject=Question%20about%20Moms%20for%20Change';
 }

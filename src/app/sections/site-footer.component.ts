@@ -61,10 +61,10 @@ interface NavLink {
               <ul class="mt-4 space-y-3">
                 <li>
                   <a
-                    href="mailto:momsforchangesc@gmail.com"
+                    href="mailto:info@momsforchangesc.org"
                     class="break-words text-paper/80 transition-colors hover:text-paper"
                   >
-                    momsforchangesc&#64;gmail.com
+                    info&#64;momsforchangesc.org
                   </a>
                 </li>
                 <li class="text-paper/80">Berkeley County, SC</li>

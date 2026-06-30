@@ -128,5 +128,5 @@ export class TeamComponent {
   ];
 
   protected readonly secretaryHref =
-    'mailto:momsforchangesc@gmail.com?subject=Volunteering%20as%20Secretary%20for%20Moms%20for%20Change';
+    'mailto:info@momsforchangesc.org?subject=Volunteering%20as%20Secretary%20for%20Moms%20for%20Change';
 }
