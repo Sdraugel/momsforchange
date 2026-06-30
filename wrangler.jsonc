@@ -2,7 +2,7 @@
   // Static-assets-only Worker (no server script): serves the prerendered
   // Angular build output. `npx wrangler deploy` uploads ./dist/.../browser.
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "momsforchange",
+  "name": "sdraugelmomsforchange",
   "compatibility_date": "2024-11-01",
   "assets": {
     "directory": "./dist/moms-for-change/browser",
