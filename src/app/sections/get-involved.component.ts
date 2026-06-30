@@ -15,11 +15,11 @@ import { RevealDirective } from '../shared/reveal.directive';
           <p class="mt-4 text-lg leading-relaxed text-forest">
             Moms for Change is a private Facebook group for parents in the Berkeley County
             community. Anyone can find the group, but only members can see posts and member
-            information. There is no public sign-up form, so reach out and we will help you in.
+            information. Here are a few easy ways to connect with us.
           </p>
         </div>
 
-        <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div class="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-3">
           <!-- Step: Facebook group (primary action) -->
           <div [mfcReveal]="80" class="flex flex-col rounded-card bg-paper-raised p-7">
             <i class="ph-bold ph-facebook-logo text-3xl text-emerald-700"></i>
@@ -36,6 +36,25 @@ import { RevealDirective } from '../shared/reveal.directive';
             >
               <i class="ph-bold ph-facebook-logo text-lg"></i>
               Join on Facebook
+            </a>
+          </div>
+
+          <!-- Step: interest form -->
+          <div [mfcReveal]="120" class="flex flex-col rounded-card bg-paper-raised p-7">
+            <i class="ph-bold ph-clipboard-text text-3xl text-emerald-700"></i>
+            <h3 class="mt-4 text-xl font-semibold text-forest">Sign up to get involved</h3>
+            <p class="mt-2 grow leading-relaxed text-forest-soft">
+              Fill out our quick form and we will reach out about ways to help in Berkeley
+              County.
+            </p>
+            <a
+              [href]="formUrl"
+              target="_blank"
+              rel="noopener"
+              class="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-emerald-900 px-6 py-3 text-base font-semibold text-paper transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              <i class="ph-bold ph-clipboard-text text-lg"></i>
+              Open the form
             </a>
           </div>
 
@@ -62,6 +81,9 @@ import { RevealDirective } from '../shared/reveal.directive';
 })
 export class GetInvolvedComponent {
   protected readonly facebookUrl = 'https://www.facebook.com/groups/momsforchangesc';
+
+  protected readonly formUrl =
+    'https://docs.google.com/forms/d/e/1FAIpQLSc_68SF_VytsA-eZhr4YO3r2VHZucuc1XSDVFyK689j9qvP-A/viewform?usp=sharing&ouid=107836862837350610300';
 
   protected readonly contactHref =
     'mailto:info@momsforchangesc.org?subject=Question%20about%20Moms%20for%20Change';

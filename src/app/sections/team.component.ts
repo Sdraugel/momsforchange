@@ -102,9 +102,9 @@ interface Officer {
   `,
 })
 export class TeamComponent {
-  // PHOTO-TO-NAME MAPPING IS UNVERIFIED. The brief supplied two co-founder
-  // photos but did not say which is Sarah Kalil and which is Yuliana Alcon.
-  // If reversed, swap the two `img` values (and `alt`) below. One edit, done.
+  // Photo-to-name mapping confirmed by the org: Sarah Kalil is the photo in
+  // green (founder-sarah.jpg), Yuliana Alcon is the studio photo in pink
+  // (founder-yuliana.jpg).
   protected readonly founders: Founder[] = [
     {
       name: 'Sarah Kalil',
@@ -114,16 +114,16 @@ export class TeamComponent {
     },
     {
       name: 'Yuliana Alcon',
-      role: 'Co-Founder',
+      role: 'Co-Founder and Treasurer',
       img: 'assets/img/founder-yuliana.jpg',
-      alt: 'Yuliana Alcon, co-founder of Moms for Change',
+      alt: 'Yuliana Alcon, co-founder and treasurer of Moms for Change',
     },
   ];
 
   protected readonly officers: Officer[] = [
     { role: 'President', name: 'Sarah Kalil' },
     { role: 'Vice President', name: 'Amanda Hebel' },
-    { role: 'Treasurer', name: 'To be announced', tentative: true },
+    { role: 'Treasurer', name: 'Yuliana Alcon' },
     { role: 'Secretary', name: '', open: true },
   ];
 
