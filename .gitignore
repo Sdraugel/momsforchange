@@ -1,0 +1,27 @@
+# Dependencies
+/node_modules
+
+# Angular build output
+/dist
+/out-tsc
+/.angular
+
+# Logs
+npm-debug.log*
+*.log
+
+# Editor / OS
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+Thumbs.db
+
+# Intermediate HEIC->JPG conversions kept out of the repo (web copies live in src/assets/img)
+/IMG_0309_converted.jpg
+/IMG_1487_converted.jpg
+/founder_a_portrait.jpg
+/founder_b_portrait.jpg
+
+# Raw HEIC originals are not web-usable; web versions are committed under src/assets/img
+*.HEIC

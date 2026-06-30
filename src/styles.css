@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* Self-hosted fonts (Fontsource) - no external <link> to Google Fonts.
+   Heading: sturdy humanist display. Body: friendly humanist sans.
+   Script: reserved ONLY for the wordmark + tiny accents, never body. */
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/hanken-grotesk";
+@import "@fontsource/kaushan-script";
+
+@import "@phosphor-icons/web/bold";
+
+/* ----------------------------------------------------------------------------
+   THEME LOCK (light, warm off-white base, ONE accent: emerald sampled #05B66C)
+
+   Color Consistency Lock: the page has a single accent HUE (emerald). The
+   darker steps below are NOT a second accent; they are the same emerald hue
+   stepped down purely so text meets WCAG AA contrast:
+     - emerald  #05B66C  brand fill, decorative shapes, DARK (forest) text only
+     - emerald-700       interactive (buttons / accent text on light) WHITE/AA ok
+     - emerald-900       deep brand band backgrounds with WHITE text
+   Shape Consistency Lock: pills are full-radius; cards/images/panels = 1.75rem;
+   chips/inputs = 0.9rem. Applied everywhere.
+---------------------------------------------------------------------------- */
+@theme {
+  --color-paper: #f7f5ee;
+  --color-paper-raised: #fcfbf6;
+  --color-emerald: #05b66c;
+  --color-emerald-700: #0b7a45;
+  --color-emerald-900: #0a4d2e;
+  /* light mint: emerald hue stepped UP for small accent text on dark bands (AA) */
+  --color-mint: #8fe9c0;
+  --color-forest: #0e3b22;
+  --color-forest-soft: #2e4a39;
+  --color-hairline: rgba(14, 59, 34, 0.12);
+
+  --font-heading: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Hanken Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Kaushan Script", ui-serif, cursive;
+
+  --radius-card: 1.75rem;
+  --radius-chip: 0.9rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-forest-soft);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-forest);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-emerald);
+    color: var(--color-forest);
+  }
+
+  /* Visible, brand-colored keyboard focus for accessibility */
+  :focus-visible {
+    outline: 3px solid var(--color-emerald-700);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+/* --- Scroll-reveal (IntersectionObserver toggles .is-visible) ---------------
+   MOTION_INTENSITY 3: calm, single entrance per element. transform + opacity
+   only (GPU-cheap). Fully disabled under prefers-reduced-motion. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Phosphor icons inherit text color + sit on the baseline cleanly */
+i[class^="ph"], i[class*=" ph"] {
+  display: inline-block;
+  line-height: 1;
+}

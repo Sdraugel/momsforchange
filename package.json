@@ -1,0 +1,35 @@
+{
+  "name": "moms-for-change",
+  "version": "1.0.0",
+  "description": "Marketing landing page for Moms for Change, a Berkeley County SC parent-led school advocacy group.",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "@fontsource-variable/bricolage-grotesque": "^5.0.0",
+    "@fontsource-variable/hanken-grotesk": "^5.0.0",
+    "@fontsource/kaushan-script": "^5.0.0",
+    "@phosphor-icons/web": "^2.1.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.0",
+    "@angular/cli": "^20.0.0",
+    "@angular/compiler-cli": "^20.0.0",
+    "@tailwindcss/postcss": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "~5.8.0"
+  }
+}
