@@ -21,6 +21,26 @@ npm start      # ng serve -> http://localhost:4200
 npm run build  # production build to dist/moms-for-change
 ```
 
+## Deploy (GitHub Actions to Cloudflare Pages)
+
+`.github/workflows/deploy.yml` builds on every push to `main` and uploads the static
+output (`dist/moms-for-change/browser`) to Cloudflare Pages via Wrangler.
+
+One-time setup:
+
+1. **Create the Pages project** (Cloudflare dashboard, Workers & Pages, Create, Pages,
+   Direct Upload) named `momsforchange`. Or once via CLI:
+   ```bash
+   npx wrangler pages project create momsforchange --production-branch=main
+   ```
+   If you pick a different name, update `--project-name` in the workflow.
+2. **Add two GitHub repo secrets** (Settings, Secrets and variables, Actions):
+   - `CLOUDFLARE_API_TOKEN` - a token with the "Cloudflare Pages: Edit" permission.
+   - `CLOUDFLARE_ACCOUNT_ID` - found on the Cloudflare dashboard sidebar.
+
+After that, every push to `main` builds and deploys automatically. Trigger manually from
+the Actions tab (Run workflow) any time.
+
 ## Design system
 
 - One accent **hue**: emerald, sampled exactly from the logo (`#05B66C`). Darker steps
