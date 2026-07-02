@@ -78,7 +78,7 @@ export class TeamComponent {
     {
       name: 'Sarah Kalil',
       role: 'President and Co-Founder',
-      img: 'assets/img/founder-sarah.jpg',
+      img: 'assets/img/sarah-headshot.jpg',
       alt: 'Sarah Kalil, President and co-founder of Moms for Change',
     },
     {
