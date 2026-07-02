@@ -65,19 +65,19 @@ import { RevealDirective } from '../shared/reveal.directive';
           </div>
         </div>
 
-        <!-- Real local photo: a Berkeley County parent and child outside their school -->
+        <!-- Brand motto graphic -->
         <div [mfcReveal]="200" class="relative lg:col-span-6 xl:col-span-5">
           <div
             aria-hidden="true"
             class="absolute -bottom-5 -left-5 hidden h-full w-full rounded-card bg-emerald/25 sm:block"
           ></div>
           <img
-            src="assets/img/parent-school.jpg"
-            alt="A Moms for Change parent and her child standing outside a Berkeley County school"
-            width="900"
-            height="1199"
+            src="assets/img/hero-motto.jpg"
+            alt="Moms for Change motto: Defending Students, Elevating Teachers, Transforming Schools"
+            width="940"
+            height="788"
             fetchpriority="high"
-            class="relative aspect-[4/5] w-full rounded-card object-cover object-top shadow-xl ring-1 ring-hairline"
+            class="relative aspect-[940/788] w-full rounded-card object-cover shadow-xl ring-1 ring-hairline"
           />
         </div>
       </div>
