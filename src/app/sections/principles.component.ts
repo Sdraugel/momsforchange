@@ -52,27 +52,21 @@ import { RevealDirective } from '../shared/reveal.directive';
             </div>
           </article>
 
-          <!-- C: paper card with a duotone photo banner -->
+          <!-- C: full-width feature row (icon badge + text) -->
           <article
             [mfcReveal]="80"
-            class="grid grid-cols-1 overflow-hidden rounded-card bg-paper-raised ring-1 ring-hairline md:col-span-5 md:grid-cols-2"
+            class="flex flex-col gap-6 rounded-card bg-paper-raised p-8 ring-1 ring-hairline sm:flex-row sm:items-center sm:gap-8 sm:p-10 md:col-span-5"
           >
-            <div class="relative min-h-[14rem] overflow-hidden">
-              <img
-                src="https://picsum.photos/seed/berkeley-county-school-hallway/1000/700?grayscale"
-                alt=""
-                aria-hidden="true"
-                class="h-full w-full object-cover grayscale"
-              />
-              <div class="absolute inset-0 bg-emerald-900/60 mix-blend-multiply"></div>
-              <div class="absolute inset-0 bg-emerald/15"></div>
+            <div
+              class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-emerald/15"
+            >
+              <i class="ph-bold ph-eye text-3xl text-emerald-700"></i>
             </div>
-            <div class="p-8 sm:p-10">
-              <i class="ph-bold ph-eye text-4xl text-emerald-700"></i>
-              <h3 class="mt-6 text-2xl font-semibold">
+            <div>
+              <h3 class="text-2xl font-semibold">
                 Transparency, fairness, and open communication
               </h3>
-              <p class="mt-3 leading-relaxed text-forest-soft">
+              <p class="mt-2 max-w-3xl leading-relaxed text-forest-soft">
                 Open district decisions, fair policy, and honest communication between
                 schools and the families they answer to.
               </p>

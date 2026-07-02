@@ -1,18 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RevealDirective } from '../shared/reveal.directive';
 
-interface Founder {
+interface Leader {
   name: string;
   role: string;
   img: string;
   alt: string;
-}
-
-interface Officer {
-  role: string;
-  name: string;
-  open?: boolean;
-  tentative?: boolean;
 }
 
 @Component({
@@ -30,82 +23,58 @@ interface Officer {
           </p>
         </div>
 
-        <!-- Co-founder portraits -->
-        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-3xl">
-          @for (f of founders; track f.name; let i = $index) {
+        <!-- Leadership portraits: Sarah, Amanda, Yuliana -->
+        <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          @for (p of leaders; track p.name; let i = $index) {
             <figure
               [mfcReveal]="i * 120"
               class="overflow-hidden rounded-card bg-paper-raised ring-1 ring-hairline"
             >
               <img
-                [src]="f.img"
-                [alt]="f.alt"
+                [src]="p.img"
+                [alt]="p.alt"
                 width="900"
                 height="1125"
                 loading="lazy"
                 class="aspect-[4/5] w-full object-cover object-top"
               />
               <figcaption class="px-6 py-5">
-                <p class="text-xl font-semibold text-forest">{{ f.name }}</p>
-                <p class="mt-1 text-sm font-medium text-emerald-700">{{ f.role }}</p>
+                <p class="text-xl font-semibold text-forest">{{ p.name }}</p>
+                <p class="mt-1 text-sm font-medium text-emerald-700">{{ p.role }}</p>
               </figcaption>
             </figure>
           }
         </div>
 
-        <!-- Officers -->
-        <h3 [mfcReveal]="0" class="mt-16 text-2xl font-semibold text-forest">Officers</h3>
-        <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          @for (o of officers; track o.role; let i = $index) {
-            <div
-              [mfcReveal]="i * 80"
-              class="rounded-card p-6"
-              [class.bg-paper-raised]="!o.open"
-              [class.ring-1]="!o.open"
-              [class.ring-hairline]="!o.open"
-              [class.bg-emerald-900]="o.open"
-            >
-              <p
-                class="text-xs font-bold uppercase tracking-wide"
-                [class.text-emerald-700]="!o.open"
-                [class.text-mint]="o.open"
-              >
-                {{ o.role }}
-              </p>
-
-              @if (o.open) {
-                <p class="mt-2 text-lg font-semibold text-paper">We are recruiting</p>
-                <p class="mt-2 text-sm leading-relaxed text-paper/80">
-                  If you would like to serve, we would love to hear from you.
-                </p>
-                <a
-                  [href]="secretaryHref"
-                  class="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald px-4 py-2 text-sm font-semibold text-forest transition-transform duration-200 hover:-translate-y-0.5"
-                >
-                  <i class="ph-bold ph-envelope-simple"></i>
-                  Volunteer as Secretary
-                </a>
-              } @else {
-                <p
-                  class="mt-2 text-lg font-semibold"
-                  [class.text-forest]="!o.tentative"
-                  [class.text-forest-soft]="o.tentative"
-                >
-                  {{ o.name }}
-                </p>
-              }
-            </div>
-          }
+        <!-- The one role we are still filling -->
+        <div
+          [mfcReveal]="0"
+          class="mt-8 flex flex-col gap-6 rounded-card bg-emerald-900 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10"
+        >
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wide text-mint">Secretary</p>
+            <p class="mt-2 text-2xl font-semibold text-paper">
+              We are still looking for a Secretary
+            </p>
+            <p class="mt-2 max-w-xl leading-relaxed text-paper/80">
+              It is the one open seat on our team. If you would like to serve, we would love
+              to hear from you.
+            </p>
+          </div>
+          <a
+            [href]="secretaryHref"
+            class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-emerald px-6 py-3 text-base font-semibold text-forest transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            <i class="ph-bold ph-envelope-simple text-lg"></i>
+            Volunteer as Secretary
+          </a>
         </div>
       </div>
     </section>
   `,
 })
 export class TeamComponent {
-  // Photo-to-name mapping confirmed by the org: Sarah Kalil is the photo in
-  // green (founder-sarah.jpg), Yuliana Alcon is the studio photo in pink
-  // (founder-yuliana.jpg).
-  protected readonly founders: Founder[] = [
+  protected readonly leaders: Leader[] = [
     {
       name: 'Sarah Kalil',
       role: 'President and Co-Founder',
@@ -113,18 +82,17 @@ export class TeamComponent {
       alt: 'Sarah Kalil, President and co-founder of Moms for Change',
     },
     {
-      name: 'Yuliana Alcon',
-      role: 'Co-Founder and Treasurer',
-      img: 'assets/img/founder-yuliana.jpg',
-      alt: 'Yuliana Alcon, co-founder and treasurer of Moms for Change',
+      name: 'Amanda Hebel',
+      role: 'Vice President',
+      img: 'assets/img/founder-amanda.jpg',
+      alt: 'Amanda Hebel, Vice President of Moms for Change',
     },
-  ];
-
-  protected readonly officers: Officer[] = [
-    { role: 'President', name: 'Sarah Kalil' },
-    { role: 'Vice President', name: 'Amanda Hebel' },
-    { role: 'Treasurer', name: 'Yuliana Alcon' },
-    { role: 'Secretary', name: '', open: true },
+    {
+      name: 'Yuliana Alcon',
+      role: 'Treasurer and Co-Founder',
+      img: 'assets/img/founder-yuliana.jpg',
+      alt: 'Yuliana Alcon, Treasurer and co-founder of Moms for Change',
+    },
   ];
 
   protected readonly secretaryHref =
