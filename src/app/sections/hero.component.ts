@@ -7,9 +7,7 @@ import { RevealDirective } from '../shared/reveal.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RevealDirective],
   template: `
-    <section
-      class="relative flex min-h-[calc(100dvh-68px)] items-center overflow-hidden bg-paper"
-    >
+    <section class="relative overflow-hidden bg-paper">
       <!-- soft organic background wash (single radial, not a mesh blob) -->
       <div
         aria-hidden="true"
@@ -17,7 +15,7 @@ import { RevealDirective } from '../shared/reveal.directive';
       ></div>
 
       <div
-        class="mx-auto grid w-full max-w-[1240px] grid-cols-1 items-center gap-12 px-5 pb-16 pt-10 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pt-16"
+        class="mx-auto grid w-full max-w-[1240px] grid-cols-1 items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-24"
       >
         <!-- Copy -->
         <div class="lg:col-span-7">

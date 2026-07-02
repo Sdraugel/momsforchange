@@ -82,7 +82,15 @@ interface NavLink {
           </div>
           <p class="mt-5 flex items-center gap-2 text-sm text-paper/85">
             <i class="ph-bold ph-code text-base text-mint"></i>
-            Site built by <span class="font-semibold text-mint">Draugel Engineering, LLC</span>
+            Site built by
+            <a
+              href="https://www.draugelengineering.com/"
+              target="_blank"
+              rel="noopener"
+              class="font-semibold text-mint underline decoration-mint/40 underline-offset-2 transition-colors hover:text-emerald hover:decoration-mint"
+            >
+              Draugel Engineering, LLC
+            </a>
           </p>
         </div>
       </div>
